@@ -88,6 +88,37 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/About_us", (req,res) =>{
+  res.writeHead(200, { "Content-Type": "text/html" });
+  const userAgent = req.headers["user-agent"];
+
+  if (userAgent && userAgent.toLowerCase().includes("mobile")) {
+    readHtmlFile("About_us.html", res);
+  } else {
+    readHtmlFile("About_us.html", res);
+  }
+})
+app.get("/Contact", (req,res) =>{
+  res.writeHead(200, { "Content-Type": "text/html" });
+  const userAgent = req.headers["user-agent"];
+
+  if (userAgent && userAgent.toLowerCase().includes("mobile")) {
+    readHtmlFile("Contact.html", res);
+  } else {
+    readHtmlFile("Contact.html", res);
+  }
+})
+app.get("/support", (req,res) =>{
+  res.writeHead(200, { "Content-Type": "text/html" });
+  const userAgent = req.headers["user-agent"];
+
+  if (userAgent && userAgent.toLowerCase().includes("mobile")) {
+    readHtmlFile("support_us.html", res);
+  } else {
+    readHtmlFile("support_us.html", res);
+  }
+})
+
 const server = https.createServer(httpsCertificates, app);
 
 server.listen(port, () => {

@@ -120,17 +120,17 @@
         <nav>
             <ul>
                 <li>
-                    <a href="About_us.php">
+                    <a href="About_us">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="Contact.php">
+                    <a href="Contact">
                         Contact
                     </a>
                 </li>
                 <li>
-                    <a href="support_us.php">
+                    <a href="support_us">
                         Support Us
                     </a>
                 </li>
@@ -175,7 +175,7 @@
                     const constantsList = document.getElementById('list');
 
                     // Fetch constants from the Node.js API
-                    fetch('https://localhost:3000/names')
+                    fetch('/names')
                         .then(response => response.json())
                         .then(data => {
                             console.log('Fetched data:', data);
@@ -200,7 +200,7 @@
                         link.addEventListener('click', function (event) {
                             event.preventDefault();
 
-                            fetch('https://localhost:3000/data/' + this.textContent)
+                            fetch('/data/' + this.textContent)
                                 .then(response => response.text())
                                 .then(value => {
                                     console.log(value);
