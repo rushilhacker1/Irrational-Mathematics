@@ -2,7 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 const https = require("https");
-const port = 80;
+const port = 3000;
 const logFilePath = "server.log";
 
 const httpsCertificates = {
