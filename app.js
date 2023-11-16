@@ -88,7 +88,7 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/About_us", (req,res) =>{
+app.get("/About", (req,res) =>{
   res.writeHead(200, { "Content-Type": "text/html" });
   const userAgent = req.headers["user-agent"];
 

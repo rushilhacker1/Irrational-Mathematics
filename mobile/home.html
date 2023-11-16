@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Your head section content here -->
+    <link rel="stylesheet" href="styles.css">
     <title>
         Home
     </title>
@@ -59,20 +60,10 @@
 
         a:hover {
             font-size: 20px;
-            -webkit-transition: font-size 0.5s;
-            -moz-transition: font-size 0.5s;
-            -o-transition: font-size 0.5s;
-            transition: font-size 0.5s;
         }
 
         /* styles.css */
 
-        /* Add styles for the "Featured Ads" section */
-        #container-09a41e95dc5be81b117d7004290f8f9c {
-            float: right;
-            width: 15.2%;
-            height: 100%;
-        }
 
 
         .list {
@@ -86,15 +77,16 @@
 
 
         #list {
-            padding-top: 5%;
-            width: 15%;
+            padding-top: 9%;
+            width: 40%;
             height: auto;
         }
 
         div {
-            width: 65%;
+            width: 60%;
             float: right;
             padding: 3%;
+            padding-top: 7%;
             margin-top: 2%;
             color: #ffff;
         }
@@ -138,22 +130,8 @@
         </nav>
     </header>
 
-
-    <div id="container-09a41e95dc5be81b117d7004290f8f9c">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : 'f9369aeba643e8854426af25bead8998',
-                'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
-                'params' : {}
-            };
-            document.write('<scr' + 'ipt type="text/javascript" src="//zqvee2re50mr.com/f9369aeba643e8854426af25bead8998/invoke.js"></scr' + 'ipt>');
-        </script>
-    </div>
-
-
     <!-- This is where the numerical value will be displayed -->
+
 
 
     <div id="constantValue">
@@ -191,28 +169,28 @@
                                 constantsList.appendChild(listItem);
                             });
                         })
-                        .then( data => {
+                        .then(data => {
                             const constantLinks = document.querySelectorAll('.lst');
                             const constantValue = document.getElementById('constant');
 
-                        constantLinks.forEach(link => {
-                        console.log(link);
-                        link.addEventListener('click', function (event) {
-                            event.preventDefault();
+                            constantLinks.forEach(link => {
+                                console.log(link);
+                                link.addEventListener('click', function (event) {
+                                    event.preventDefault();
 
-                            fetch('/data/' + this.textContent)
-                                .then(response => response.text())
-                                .then(value => {
-                                    console.log(value);
-                                    constantValue.textContent = value.split('"')[7];
-                                })
-                                .catch(error => {
-                                    console.error('Error:' + error);
+                                    fetch('/data/' + this.textContent)
+                                        .then(response => response.text())
+                                        .then(value => {
+                                            console.log(value);
+                                            constantValue.textContent = value.split('"')[7];
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:' + error);
+                                        });
                                 });
-                        });
-                    });
-                })
-                    .catch(error => console.error('Error fetching constants:', error));
+                            });
+                        })
+                        .catch(error => console.error('Error fetching constants:', error));
 
 
                 });
@@ -222,12 +200,22 @@
 
     </aside>
 
+    <script type="text/javascript">
+        atOptions = {
+            'key': 'f1c5fba56ee3583a745700cd70a0c29a',
+            'format': 'iframe',
+            'height': 60,
+            'width': 468,
+            'params': {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="//www.highcpmcreativeformat.com/f1c5fba56ee3583a745700cd70a0c29a/invoke.js"></scr' + 'ipt>');
+    </script>
+
     <footer>
         &copy; 2023 Irrational Mathematics
     </footer>
 
     <!-- JavaScript to handle constant value display -->
-
 </body>
 
 </html>
