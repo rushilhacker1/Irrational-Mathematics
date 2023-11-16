@@ -2,7 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 const https = require("https");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const logFilePath = "server.log";
 
 const httpsCertificates = {
@@ -118,6 +118,8 @@ app.get("/support", (req,res) =>{
     readHtmlFile("support_us.html", res);
   }
 })
+
+module.exports = app
 
 const server = https.createServer(httpsCertificates, app);
 
