@@ -4,7 +4,8 @@
     "express-device": "^0.4.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "ngrok": "^5.0.0-beta.2"
   },
   "name": "test",
   "version": "1.0.0",

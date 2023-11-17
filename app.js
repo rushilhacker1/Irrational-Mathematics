@@ -2,7 +2,9 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 const https = require("https");
-const port = process.env.PORT || 3000;
+const ngrok = require("ngrok");
+
+const port = process.env.PORT || 80;
 const logFilePath = "server.log";
 
 const httpsCertificates = {
@@ -82,7 +84,7 @@ app.get("/", (req, res) => {
   const userAgent = req.headers["user-agent"];
 
   if (userAgent && userAgent.toLowerCase().includes("mobile")) {
-    readHtmlFile("home.html", res);
+    readHtmlFile("mobile/home.html", res);
   } else {
     readHtmlFile("home.html", res);
   }
@@ -119,9 +121,15 @@ app.get("/support", (req,res) =>{
   }
 })
 
+app.get("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA", (req,res) =>{
+  res.render("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA");
+})
+
 module.exports = app
 
 const server = https.createServer(httpsCertificates, app);
+
+
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
