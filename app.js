@@ -123,7 +123,7 @@ module.exports = app
 
 const server = https.createServer(httpsCertificates, app);
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
   logInfo("Server started successfully");
 });
