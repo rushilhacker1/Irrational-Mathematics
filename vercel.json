@@ -1,9 +1,9 @@
 {
-    "installCommand":"npm i",
+    "installCommand":"npm start",
     "devCommand":"npm run dev",
     "cleanUrls": true,
     "functions": {
-      "api/app.js": {
+      "./app.js": {
         "memory": 1024
       }  
   }
