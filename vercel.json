@@ -1,3 +1,10 @@
 {
-    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+    "installCommand":"npm i",
+    "devCommand":"npm run dev",
+    "cleanUrls": true,
+    "functions": {
+      "api/app.js": {
+        "memory": 1024
+      }  
   }
+}
