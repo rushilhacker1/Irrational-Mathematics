@@ -125,7 +125,8 @@ app.get("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA
   res.render("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA");
 })
 
-module.exports = app
+// module.exports = app
+export default app
 
 const server = https.createServer(httpsCertificates, app);
 
