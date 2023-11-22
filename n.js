@@ -2,14 +2,20 @@ import { Console } from "console";
 
 const fs = require("fs");
 const express = require("express");
-
 const app = express();
-const port = process.env.PORT || 4000;
+const https = require("https");
+const ngrok = require("ngrok");
 
+const port = process.env.PORT || 80;
 const logFilePath = "server.log";
 
+const httpsCertificates = {
+  key: fs.readFileSync("key.pem"),
+  cert: fs.readFileSync("cert.pem"),
+};
 
 const constantsDirectory = "public/constants";
+const dataInRam = {};
 
 function readHtmlFile(filePath, res) {
   fs.readFile(filePath, (error, data) => {
@@ -59,13 +65,20 @@ app.get("/names", (req, res) => {
 app.get("/data/:fileName", (req, res) => {
   const fileName = req.params.fileName;
   const filePath = `${constantsDirectory}/${fileName}`;
-    try{
+
+  if (dataInRam[fileName]) {
+    // If data is in RAM, serve it from there
+    res.json({ fileName, data: dataInRam[fileName] });
+  } else {
+    // If data is not in RAM, read it from the file and store in RAM
+    try {
       const fileData = fs.readFileSync(filePath, "utf8");
       dataInRam[fileName] = fileData;
       res.json({ fileName, data: fileData });
     } catch (error) {
       res.status(404).json({ error: "File not found" });
     }
+  }
 });
 
 app.get("/", (req, res) => {
@@ -115,5 +128,11 @@ Console.log("crccdcdwdw")
 })
 
 module.exports = app;
+const server = https.createServer(httpsCertificates, app);
 
 
+
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+  logInfo("Server started successfully");
+});
