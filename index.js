@@ -1,3 +1,5 @@
+import { Console } from "console";
+
 const fs = require("fs");
 const express = require("express");
 const app = express();
@@ -121,8 +123,8 @@ app.get("/support", (req,res) =>{
   }
 })
 
-app.get("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA", (req,res) =>{
-  res.render("/.well-known/acme-challenge/Zw2ijS9wLHeJrfQKWX3gnGDQrDwH1XkJwu2Wl8UN2hA");
+app.get("/jjj", (req,res) =>{
+Console.log("crccdcdwdw")
 })
 
 // module.exports = app
