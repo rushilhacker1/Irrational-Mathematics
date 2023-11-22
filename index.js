@@ -12,7 +12,7 @@ const httpsCertificates = {
   cert: fs.readFileSync("cert.pem"),
 };
 
-const constantsDirectory = "constants";
+const constantsDirectory = "public/constants";
 const dataInRam = {};
 
 function readHtmlFile(filePath, res) {
@@ -84,9 +84,9 @@ app.get("/", (req, res) => {
   const userAgent = req.headers["user-agent"];
 
   if (userAgent && userAgent.toLowerCase().includes("mobile")) {
-    readHtmlFile("mobile/home.html", res);
+    readHtmlFile("public/mobile/home.html", res);
   } else {
-    readHtmlFile("home.html", res);
+    readHtmlFile("public/home.html", res);
   }
 });
 
@@ -95,9 +95,9 @@ app.get("/About", (req,res) =>{
   const userAgent = req.headers["user-agent"];
 
   if (userAgent && userAgent.toLowerCase().includes("mobile")) {
-    readHtmlFile("About_us.html", res);
+    readHtmlFile("public/mobile/About_us.html", res);
   } else {
-    readHtmlFile("About_us.html", res);
+    readHtmlFile("public/About_us.html", res);
   }
 })
 app.get("/Contact", (req,res) =>{
@@ -105,9 +105,9 @@ app.get("/Contact", (req,res) =>{
   const userAgent = req.headers["user-agent"];
 
   if (userAgent && userAgent.toLowerCase().includes("mobile")) {
-    readHtmlFile("Contact.html", res);
+    readHtmlFile("public/mobile/Contact.html", res);
   } else {
-    readHtmlFile("Contact.html", res);
+    readHtmlFile("public/Contact.html", res);
   }
 })
 app.get("/support", (req,res) =>{
@@ -115,9 +115,9 @@ app.get("/support", (req,res) =>{
   const userAgent = req.headers["user-agent"];
 
   if (userAgent && userAgent.toLowerCase().includes("mobile")) {
-    readHtmlFile("support_us.html", res);
+    readHtmlFile("public/mobile/support_us.html", res);
   } else {
-    readHtmlFile("support_us.html", res);
+    readHtmlFile("public/support_us.html", res);
   }
 })
 
