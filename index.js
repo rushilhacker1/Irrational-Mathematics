@@ -127,8 +127,7 @@ app.get("/jjj", (req,res) =>{
 Console.log("crccdcdwdw")
 })
 
-// module.exports = app
-export default app
+module.exports = app
 
 const server = https.createServer(httpsCertificates, app);
 
